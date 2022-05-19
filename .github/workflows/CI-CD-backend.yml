@@ -1,0 +1,39 @@
+name: CI/CD-backend
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    types: [ opened, synchronize ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Clone repository
+      uses: actions/checkout@v2
+
+    - name: Install modules
+      run: yarn
+
+    - name: Tests
+      run: |
+        yarn backend:tests-ci
+
+    - name: Lint
+      run: |
+        yarn lint:fix
+
+    - name: Commit changes
+      uses: EndBug/add-and-commit@v8
+      with:
+        add: 'backend/src'
+        message: 'Commit from GitHub Actions: lint autofix'
+
+    - name: Build
+      run: |
+        yarn backend:build
+
+    - name: Commit changes
+      uses: EndBug/add-and-commit@v8
+      with:
+        add: 'backend/dist'
+        message: 'Commit from GitHub Actions: build'

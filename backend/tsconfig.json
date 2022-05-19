@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "esModuleInterop": true,
+        "outDir": "dist",
+        "baseUrl": ".",
+        "moduleResolution": "node",
+        "types": [
+            "jest",
+            "node",
+        ],
+    },
+    "include": ["src/**/*"],
+    "sourceMap": true
+}

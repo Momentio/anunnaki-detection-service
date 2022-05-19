@@ -1,0 +1,41 @@
+{
+  "name": "anunnaki-detection-service",
+  "version": "0.0.0",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "frontend:start": "yarn --cwd ./frontend start",
+    "frontend:build": "yarn --cwd ./frontend build",
+    "frontend:tests": "yarn --cwd ./frontend tests",
+    "frontend:tests-ci": "yarn --cwd ./backend tests:ci",
+
+    "backend:start": "yarn --cwd ./backend start",
+    "backend:watch": "yarn --cwd ./backend watch",
+    "backend:build": "yarn --cwd ./backend build",
+    "backend:tests": "yarn --cwd ./backend tests",
+    "backend:tests-ci": "yarn --cwd ./backend tests:ci",
+
+    "lint": "eslint --cache --ext .ts --ext .tsx .",
+    "lint:fix": "eslint --cache --ext .ts --ext .tsx . --fix"
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.17.0",
+    "dotenv": "^16.0.0",
+    "eventemitter3": "^4.0.7",
+    "express": "^4.17.2",
+    "lerna": "^4.0.0",
+    "ts-node": "^10.5.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.4.1",
+    "@typescript-eslint/parser": "^5.17.0",
+    "eslint": "^8.12.0",
+    "jest": "^27.5.1",
+    "ts-jest": "^27.1.3",
+    "ts-node-dev": "^1.1.8"
+  },
+  "workspaces": [
+    "backend",
+    "frontend"
+  ]
+}
